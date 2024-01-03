@@ -1,0 +1,89 @@
+/* style.css */
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Typographie similaire à celle utilisée par MyProtein */
+    background-color: #EFEFEF; /* Fond clair utilisé sur le site */
+    color: #5A5A5A; /* Gris foncé pour le texte, comme sur MyProtein */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-color: #1D3C45; /* Bleu très foncé de l'en-tête de MyProtein */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #1D3C45; /* Bleu foncé pour les titres */
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #1D3C45; /* Bleu foncé pour les en-têtes de table */
+    color: white;
+}
+
+button, .btn-primary {
+    background-color: #FFD200; /* Jaune vif, une couleur marquante de MyProtein */
+    color: #1D3C45; /* Bleu très foncé pour le texte du bouton */
+    border: none;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover, .btn-primary:hover {
+    background-color: #E6C300; /* Une nuance plus foncée du jaune au survol */
+}
+
+a.btn-primary {
+    text-decoration: none;
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1D3C45; /* Bleu très foncé pour le pied de page */
+    color: white;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    body, .content {
+        padding: 10px;
+    }
+}
