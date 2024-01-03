@@ -1,0 +1,51 @@
+{# This is your child template, such as cart/index.html.twig #}
+
+{% extends 'base.html.twig' %}  {# Extends from one base template only #}
+
+{% block title %}Your Cart{% endblock %}
+
+{% block body %}
+    <div class="cart-navigation">
+        <a href="{{ path('app_home') }}" class="btn btn-primary">Retour à l'accueil</a>
+        <a href="{{ path('product_index') }}" class="btn btn-primary">Voir les produits</a>
+    </div>
+
+    <h1>Votre Panier</h1>
+    {% if items is defined and items|length > 0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix Unitaire</th>
+                    <th>Total Produit</th>
+                    <th>Modifier Quantité</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.price * item.quantity }}</td>
+                        <td>
+                            <a href="{{ path('cart_decrease', {'id': item.product.id}) }}" class="quantity-modify">-</a>
+                            <span class="quantity-number">{{ item.quantity }}</span>
+                            <a href="{{ path('cart_increase', {'id': item.product.id}) }}" class="quantity-modify">+</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="cart-total">
+            <strong>Total : {{ total }}</strong>
+        </div>
+        <div class="checkout">
+            <a href="{{ path('cart_checkout') }}" class="btn btn-success">Procéder au paiement</a>
+        </div>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+{% endblock %}
+

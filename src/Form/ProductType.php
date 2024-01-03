@@ -27,9 +27,10 @@ class ProductType extends AbstractType
             ->add('nutritionalPropreties', TextareaType::class)
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'name', // Assuming Category entity has a 'name' field
+                'choice_label' => 'name',
+            ]) // Assuming Category entity has a 'name' field
                 // Other options can be set here, such as 'multiple' for a many-to-many relationship
-            ])
+        
             // Add more fields or customize as needed
             ;   
     }
@@ -39,5 +40,24 @@ class ProductType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Product::class,
         ]);
+    }
+    public function new(Request $request, EntityManagerInterface $entityManager): Response {
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Ensure that category is set
+            if (!$product->getCategory()) {
+                // Handle the error, e.g., add a flash message or throw an exception
+            }
+
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+            // Redirect or return response
+        }
+
+        // Return form view
     }
 }
