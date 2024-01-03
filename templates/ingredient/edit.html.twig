@@ -1,0 +1,16 @@
+    {# templates/ingredient/edit.html.twig #}
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Edit Ingredient{% endblock %}
+
+    {% block body %}
+    <h1>Edit Ingredient</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Update</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}">Cancel</a>
+    {% endblock %}

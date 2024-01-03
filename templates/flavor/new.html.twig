@@ -1,0 +1,16 @@
+        {# templates/flavor/new.html.twig #}
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Create New Flavor{% endblock %}
+
+    {% block body %}
+    <h1>Create New Flavor</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Create</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('flavor_index') }}">Back to list</a>
+    {% endblock %}

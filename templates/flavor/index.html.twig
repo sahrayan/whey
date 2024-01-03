@@ -1,0 +1,37 @@
+{# templates/flavor/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Flavor List{% endblock %}
+
+{% block body %}
+<h1>Flavor List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for flavor in flavors %}
+            <tr>
+                <td>{{ flavor.name }}</td>
+                <td>{{ flavor.FlavorDescription }}</td>
+                <td>
+                    <a href="{{ path('flavor_show', {'id': flavor.id}) }}">view</a>
+                    <a href="{{ path('flavor_edit', {'id': flavor.id}) }}">edit</a>
+                    <form action="{{ path('flavor_delete', {'id': flavor.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ flavor.id) }}">
+                        <button type="submit">delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('flavor_new') }}">Create new</a>
+{% endblock %}

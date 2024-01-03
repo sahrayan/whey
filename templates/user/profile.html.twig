@@ -1,0 +1,29 @@
+{# templates/user/profile.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block body %}
+<div class="container"> 
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <section class="profile-info">
+        <h2>Personal Information</h2>
+        <dl>
+            <dt>Username:</dt>
+            <dd>{{ app.user.username }}</dd> <!-- Replace with actual user data -->
+
+            <dt>Email:</dt>
+            <dd>{{ app.user.email }}</dd> <!-- Replace with actual user data -->
+            <!-- Add more personal details here -->
+        </dl>
+    </section>
+
+    <!-- Potentially add more sections here for additional profile data -->
+</div>
+<footer>
+    <p>Footer content goes here</p>
+</footer>
+{% endblock %}

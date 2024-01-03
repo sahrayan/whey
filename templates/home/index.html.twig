@@ -1,0 +1,44 @@
+    {# templates/products.html.twig #}
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Muscle Building Products{% endblock %}
+
+    {% block body %}
+    <header>
+        <div class="header-content">
+            <h1>Bienvenue chez MuscleMax: Produits de construction musculaire premium</h1>
+            <nav>
+                <a href="/login" class="btn-primary">Se Connecter</a>
+                <a href="/register" class="btn-primary">S'inscrire</a>
+                <a href="/product" class="btn-primary">Produits</a>
+                <a href="/cart" class="btn-primary">Panier</a>
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        <section class="product-section">
+            <h2>Produits Vedettes</h2>
+            <!-- Exemple de carte de produit -->
+            <div class="card">
+                <img src="/path/to/product-image.jpg" alt="Image du Produit">
+                <div class="card-content">
+                    <h3 class="card-title">Produit 1</h3>
+                    <p class="card-text">Ce produit incroyable vous aide à développer vos muscles rapidement!</p>
+                    <a href="#" class="btn-primary">En savoir plus</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/path/to/another-product-image.jpg" alt="Une autre Image du Produit">
+                <div class="card-content">
+                    <h3 class="card-title">Produit 2</h3>
+                    <p class="card-text">Notre formule premium pour une performance maximale.</p>
+                    <a href="#" class="btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 MuscleMax Inc. Tous droits réservés.</p>
+    </footer>
+    {% endblock %}

@@ -1,0 +1,39 @@
+    {# templates/ingredient/index.html.twig #}
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Ingredient List{% endblock %}
+
+    {% block body %}
+    <h1>Ingredient List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Allergens</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingredient in ingredients %}
+                <tr>
+                    <td>{{ ingredient.name }}</td>
+                    <td>{{ ingredient.ingredientDescription }}</td>
+                    <td>{{ ingredient.allergens ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}">view</a>
+                        <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}">edit</a>
+                        <form action="{{ path('ingredient_delete', {'id': ingredient.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ingredient.id) }}">
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ingredient_new') }}">Create new</a>
+    {% endblock %}

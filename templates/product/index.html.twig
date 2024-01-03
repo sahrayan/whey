@@ -1,0 +1,41 @@
+    {# templates/product/index.html.twig #}
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Product List{% endblock %}
+
+    {% block body %}
+    <h1>Product List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Stock</th>
+                <th>Volume</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td>{{ product.volume }}</td>
+                    <td>
+                        <a href="{{ path('product_show', {'id': product.id}) }}">view</a>
+                        <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                        <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_new') }}">Create new</a>
+    {% endblock %}
