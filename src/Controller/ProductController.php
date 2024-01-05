@@ -11,6 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Flavor; 
+use App\Form\FlavorType;
+
 
 #[Route('/product')]
 class ProductController extends AbstractController
@@ -25,24 +28,36 @@ class ProductController extends AbstractController
     }
 
     #[Route('/new', name: 'product_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'product_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
-
+    
+        // Créez une instance de Flavor et un formulaire FlavorType ici
+        $flavor = new Flavor();
+        $flavorForm = $this->createForm(FlavorType::class, $flavor);
+    
         if ($form->isSubmitted() && $form->isValid()) {
+            // Gérez la création du produit ici
+    
+            // Assurez-vous d'ajouter les saveurs au produit, par exemple :
+            $product->addFlavor($flavor);
+    
             $entityManager->persist($product);
             $entityManager->flush();
-
+    
             return $this->redirectToRoute('product_index');
         }
-
+    
         return $this->render('product/new.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+            'flavorForm' => $flavorForm->createView(), // Transmettez le formulaire Flavor à la vue
         ]);
     }
+    
 
     #[Route('/{id}', name: 'product_show', methods: ['GET'])]
     public function show(Product $product): Response
