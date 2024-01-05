@@ -6,6 +6,8 @@ use App\Repository\FlavorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Flavor;
+
 
 #[ORM\Entity(repositoryClass: FlavorRepository::class)]
 class Flavor
@@ -19,17 +21,21 @@ class Flavor
     private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $FlavorDescription = null;
+    private ?string $flavorDescription = null;
 
     #[ORM\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'flavors')]
-    private Collection $Ingredients;
+    private Collection $ingredients;
 
-    #[ORM\ManyToOne(inversedBy: 'Flavor')]
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'flavors')]
+    private Collection $products;
+
+    #[ORM\ManyToOne(inversedBy: 'flavors')]
     private ?Choose $choose = null;
 
     public function __construct()
     {
-        $this->Ingredients = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -42,46 +48,61 @@ class Flavor
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
     public function getFlavorDescription(): ?string
     {
-        return $this->FlavorDescription;
+        return $this->flavorDescription;
     }
 
-    public function setFlavorDescription(?string $FlavorDescription): static
+    public function setFlavorDescription(?string $flavorDescription): self
     {
-        $this->FlavorDescription = $FlavorDescription;
-
+        $this->flavorDescription = $flavorDescription;
         return $this;
     }
 
-    /**
-     * @return Collection<int, Ingredient>
-     */
     public function getIngredients(): Collection
     {
-        return $this->Ingredients;
+        return $this->ingredients;
     }
 
-    public function addIngredient(Ingredient $ingredient): static
+    public function addIngredient(Ingredient $ingredient): self
     {
-        if (!$this->Ingredients->contains($ingredient)) {
-            $this->Ingredients->add($ingredient);
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
         }
-
         return $this;
     }
 
-    public function removeIngredient(Ingredient $ingredient): static
+    public function removeIngredient(Ingredient $ingredient): self
     {
-        $this->Ingredients->removeElement($ingredient);
+        $this->ingredients->removeElement($ingredient);
+        return $this;
+    }
 
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addFlavor($this); // Assurez-vous que la méthode addFlavor() existe dans Product
+        }
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->removeElement($product)) {
+            $product->removeFlavor($this); // Assurez-vous que la méthode removeFlavor() existe dans Product
+        }
         return $this;
     }
 
@@ -90,10 +111,9 @@ class Flavor
         return $this->choose;
     }
 
-    public function setChoose(?Choose $choose): static
+    public function setChoose(?Choose $choose): self
     {
         $this->choose = $choose;
-
         return $this;
     }
 }
