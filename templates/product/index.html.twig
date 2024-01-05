@@ -1,16 +1,16 @@
-    {# templates/product/index.html.twig #}
+{# templates/product/index.html.twig #}
 
-    {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-    {% block title %}Product List{% endblock %}
+{% block title %}Product List{% endblock %}
 
-    {% block body %}
-        <a href="{{ path('app_home') }}" class="btn-primary">Home</a> <!-- Bouton pour revenir à l'accueil -->
-        <a href="{{ path('cart_index') }}">View Cart</a>
+{% block body %}
+    <a href="{{ path('app_home') }}" class="btn-primary">Home</a> <!-- Bouton pour revenir à l'accueil -->
+    <a href="{{ path('cart_index') }}" class="btn-secondary">View Cart</a>
 
     <h1>Product List</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -28,19 +28,33 @@
                     <td>{{ product.stock }}</td>
                     <td>{{ product.volume }}</td>
                     <td>
-                        <!-- ... affichage des informations du produit ... -->
-                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
-                        <a href="{{ path('product_show', {'id': product.id}) }}">view</a>
-                        <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-                        <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
+                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success">Ajouter au panier</a>
+                        <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-info">View</a>
+                        <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');" class="d-inline">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                            <button type="submit">delete</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
                 </tr>
+                <tr>
+    <th>Flavors</th>
+    <td>
+        {% if product.flavors is not empty %}
+            <ul>
+                {% for flavor in product.flavors %}
+                    <li>{{ flavor.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            No flavors available
+        {% endif %}
+    </td>
+</tr>
+
             {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('product_new') }}">Create new</a>
-    {% endblock %}
+    <a href="{{ path('product_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

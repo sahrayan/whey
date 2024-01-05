@@ -1,16 +1,25 @@
-        {# templates/product/new.html.twig #}
+{# templates/product/new.html.twig #}
 
-    {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-    {% block title %}Create New Product{% endblock %}
+{% block title %}Create New Product{% endblock %}
 
-    {% block body %}
-    <h1>Create New Product</h1>
+{% block body %}
+<h1>Create New Product</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Create</button>
-    {{ form_end(form) }}
+{{ form_start(form) }}
 
-    <a href="{{ path('product_index') }}">Back to list</a>
-    {% endblock %}
+{# Personnalisation et affichage des champs du formulaire #}
+{{ form_widget(form) }}
+
+{{ form_row(form.flavors) }}
+
+
+<button class="btn btn-success" type="submit">Create</button> {# Bouton stylisé #}
+{{ form_end(form) }}
+
+<a class="btn btn-secondary" href="{{ path('product_index') }}">Back to list</a> {# Lien de retour stylisé #}
+
+{#  ajouter des messages flash pour la confirmation ou l'affichage des erreurs #}
+
+{% endblock %}

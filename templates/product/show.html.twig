@@ -24,6 +24,17 @@
         <th>Volume</th>
         <td>{{ product.volume }}</td>
     </tr>
+    <h2>Flavors</h2>
+{% if product.flavors is not empty %}
+    <ul>
+        {% for flavor in product.flavors %}
+            <li>{{ flavor.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No flavors available for this product.</p>
+{% endif %}
+
     <!-- Add more details as needed -->
 </table>
 
