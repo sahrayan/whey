@@ -5,6 +5,12 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Flavor;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Form\FlavorType;
+
+
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -166,4 +172,37 @@ class Product
 
         return $this;
     }
+/**
+ * @ORM\ManyToMany(targetEntity=Flavor::class)
+ */
+private $flavors;
+
+public function __construct()
+{
+    $this->flavors = new ArrayCollection();
+}
+
+public function getFlavors(): Collection
+{
+    return $this->flavors ?: new ArrayCollection();
+}
+
+
+// Méthode pour ajouter une saveur au produit
+public function addFlavor(Flavor $flavor): self
+{
+    if (!$this->flavors->contains($flavor)) {
+        $this->flavors[] = $flavor;
+    }
+
+    return $this;
+}
+
+// Méthode pour retirer une saveur du produit
+public function removeFlavor(Flavor $flavor): self
+{
+    $this->flavors->removeElement($flavor);
+
+    return $this;
+}
 }
