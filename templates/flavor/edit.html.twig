@@ -1,16 +1,21 @@
-    {# templates/flavor/edit.html.twig #}
+{# templates/flavor/edit.html.twig #}
+{% extends 'base.html.twig' %}
 
-    {% extends 'base.html.twig' %}
+{% block title %}Edit Flavor{% endblock %}
 
-    {% block title %}Edit Flavor{% endblock %}
-
-    {% block body %}
+{% block body %}
     <h1>Edit Flavor</h1>
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
+
+    <!-- Bouton pour mettre à jour la saveur -->
     <button type="submit">Update</button>
+
+    <!-- Bouton Ajouter -->
+    <a href="{{ path('flavor_new') }}" class="btn btn-primary">Add New Flavor</a>
+
     {{ form_end(form) }}
 
     <a href="{{ path('flavor_show', {'id': flavor.id}) }}">Cancel</a>
-    {% endblock %}
+{% endblock %}

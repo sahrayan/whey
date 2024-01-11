@@ -1,11 +1,15 @@
-    {# templates/flavor/show.html.twig #}
+{# templates/flavor/show.html.twig #}
+{% extends 'base.html.twig' %}
 
-    {% extends 'base.html.twig' %}
+{% block title %}Flavor Details{% endblock %}
 
-    {% block title %}Flavor Details{% endblock %}
-
-    {% block body %}
+{% block body %}
     <h1>Flavor Details</h1>
+
+    <!-- Supprimez les lignes suivantes si le formulaire n'est pas nécessaire -->
+    {# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }} #}
 
     <table>
         <tr>
@@ -16,7 +20,7 @@
             <th>Description</th>
             <td>{{ flavor.FlavorDescription }}</td>
         </tr>
-        <!-- Add more details as needed -->
+        <!-- Ajoutez d'autres détails au besoin -->
     </table>
 
     <a href="{{ path('flavor_index') }}">Back to list</a>
@@ -25,4 +29,4 @@
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ flavor.id) }}">
         <button type="submit">Delete</button>
     </form>
-    {% endblock %}
+{% endblock %}
