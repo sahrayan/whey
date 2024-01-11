@@ -17,13 +17,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class FlavorController extends AbstractController
 {
     #[Route('/', name: 'flavor_index', methods: ['GET'])]
-    public function index(FlavorRepository $repository): Response
+    public function index(FlavorRepository $repository, Request $request): Response
     {
         $flavors = $repository->findAll();
+    
+        // Création du formulaire
+        $form = $this->createForm(FlavorType::class);
+        $form->handleRequest($request);
+    
         return $this->render('flavor/index.html.twig', [
             'flavors' => $flavors,
+            'form' => $form->createView(),
         ]);
     }
+    
 
     #[Route('/new', name: 'flavor_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -48,10 +55,15 @@ class FlavorController extends AbstractController
     #[Route('/{id}', name: 'flavor_show', methods: ['GET'])]
     public function show(Flavor $flavor): Response
     {
+        // Création du formulaire (si nécessaire)
+        $form = $this->createForm(FlavorType::class, $flavor);
+    
         return $this->render('flavor/show.html.twig', [
             'flavor' => $flavor,
+            'form' => $form->createView(), // Assurez-vous de passer le formulaire
         ]);
     }
+    
 
     #[Route('/{id}/edit', name: 'flavor_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Flavor $flavor, EntityManagerInterface $entityManager): Response
