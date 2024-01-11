@@ -15,6 +15,18 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+          <header>
+        <div class="header-content">
+           
+            <nav>
+                <a href="/login" class="btn-primary">Se Connecter</a>
+                <a href="/register" class="btn-primary">S'inscrire</a>
+                <a href="/product" class="btn-primary">Produits</a>
+                <a href="/cart" class="btn-primary">Panier</a>
+            </nav>
+        </div>
+    </header>
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
