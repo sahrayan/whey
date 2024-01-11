@@ -1,48 +1,113 @@
     {# templates/product/show.html.twig #}
 
-{% extends 'base.html.twig' %}
+
 
 {% block title %}Product Details{% endblock %}
 
 {% block body %}
-<h1>Product Details</h1>
+    <style>
+        h1, h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-<table>
-    <tr>
-        <th>Name</th>
-        <td>{{ product.name }}</td>
-    </tr>
-    <tr>
-        <th>Description</th>
-        <td>{{ product.description }}</td>
-    </tr>
-    <tr>
-        <th>Stock</th>
-        <td>{{ product.stock }}</td>
-    </tr>
-    <tr>
-        <th>Volume</th>
-        <td>{{ product.volume }}</td>
-    </tr>
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            width: 20%;
+        }
+
+        td {
+            width: 80%;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+        }
+
+        .actions {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: white;
+            background-color: #007bff;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+
+    <h1>Product Details</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ product.description }}</td>
+        </tr>
+        <tr>
+            <th>Stock</th>
+            <td>{{ product.stock }}</td>
+        </tr>
+        <tr>
+            <th>Volume</th>
+            <td>{{ product.volume }}</td>
+        </tr>
+    </table>
+
     <h2>Flavors</h2>
-{% if product.flavors is not empty %}
-    <ul>
-        {% for flavor in product.flavors %}
-            <li>{{ flavor.name }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No flavors available for this product.</p>
-{% endif %}
+    {% if product.flavors is not empty %}
+        <ul>
+            {% for flavor in product.flavors %}
+                <li>{{ flavor.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No flavors available for this product.</p>
+    {% endif %}
 
-    <!-- Add more details as needed -->
-</table>
-
-<a href="{{ path('product_index') }}">Back to list</a>
-<a href="{{ path('product_edit', {'id': product.id}) }}">Edit</a>
-<form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-    <button type="submit">Delete</button>
-</form>
+    <div class="actions">
+        <a href="{{ path('product_index') }}" class="btn">Back to list</a>
+        <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn">Edit</a>
+        <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');" class="d-inline">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
 {% endblock %}
-    
