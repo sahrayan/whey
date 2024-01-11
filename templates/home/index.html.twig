@@ -1,41 +1,93 @@
-    {# templates/products.html.twig #}
+{% extends 'base.html.twig' %}
 
-    {% extends 'base.html.twig' %}
+{% block title %}WheyMax{% endblock %}
 
-    {% block title %}WheyMax{% endblock %}
+{% block body %}
 
-    {% block body %}
-    <header>
-        <div class="header-content">
-            <h1>WheyMax: Produits de construction musculaire premium</h1>
-            <nav>
-                <a href="/login" class="btn-primary">Se Connecter</a>
-                <a href="/register" class="btn-primary">S'inscrire</a>
-                <a href="/product" class="btn-primary">Produits</a>
-                <a href="/cart" class="btn-primary">Panier</a>
-            </nav>
-        </div>
-    </header>
-<div class="content">
-    <section class="product-section">
-        <h2>Produits Vedettes</h2>
-        {% for product in products %} <!-- Boucle sur chaque produit -->
-            <div class="card">
-                <!-- Utilisez l'attribut approprié pour le chemin de l'image du produit -->
-                <img src="{{ product.imgProduct }}" alt="{{ product.name }}"> 
-                <div class="card-content">
-                    <h3 class="card-title">{{ product.name }}</h3>
-                    <p class="card-text">{{ product.description }}</p>
-                    <!-- Assurez-vous que le chemin est correct et mène à la page de détail du produit -->
-                    <a href="{{ path('product_show', {'id': product.id}) }}" class="btn-primary">En savoir plus</a> 
-                </div>
-            </div>
-        {% else %}
-            <p>Aucun produit trouvé.</p> <!-- Affichez ce message si aucun produit n'est trouvé -->
-        {% endfor %}
-    </section>
+
+  
+   <section id="hero">
+        <video autoplay muted loop id="myVideo">
+            <source src="../whey/production_id_4761426 (2160p).mp4" type="video/mp4">
+        </video>
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content-hero">
+  <h1>Heading</h1>
+  <p>Lorem ipsum...</p>
+  <!-- Use a button to pause/play the video with JavaScript -->
+  
 </div>
-<footer>
-    <!-- ... Votre pied de page ... -->
-</footer>
+
+   </section>
+    {# <div class="content"> #}
+        <section class="product-section">
+            <h2>Produits Vedettes</h2>
+            {% for product in products %}
+                <div class="card">
+                    <img src="{{ product.imgProduct }}" alt="{{ product.name }}"> 
+                    <div class="card-content">
+                        <h3 class="card-title">{{ product.name }}</h3>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{{ path('product_show', {'id': product.id}) }}" class="btn-primary">En savoir plus</a> 
+                    </div>
+                </div>
+            {% else %}
+                <p>Aucun produit trouvé.</p>
+            {% endfor %}
+        </section>
+
+        <section id="promo">
+                    <p> lorem du produit  </p>
+        </section>
+
+           <section id="shop">
+                    <article>
+                    <article>
+                    <figure>
+                    </figure>
+        </section>
+
+    {# </div> #}
+    <footer>
+        <!-- ... Votre pied de page ... -->
+        <div class="container row">
+			<div class="footer-col">
+				<h4>company</h4>
+				<ul>
+					<li><a href="#">about us</a></li>
+					<li><a href="#">our services</a></li>
+					<li><a href="#">privacy policy</a></li>
+					<li><a href="#">visit website</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>get help</h4>
+				<ul>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">shipping</a></li>
+					<li><a href="#">returns</a></li>
+					<li><a href="#">order status</a></li>
+					<li><a href="#">payment options</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>online shop</h4>
+				<ul>
+					<li><a href="#">download</a></li>
+					<li><a href="#">changelog</a></li>
+					
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>follow us</h4>
+				<div class="social-links">
+					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+					<a href="#"><i class="fa-brands fa-instagram"></i></a>
+					<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</div>
+		</div>
+    </footer>
 {% endblock %}
