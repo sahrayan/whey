@@ -29,12 +29,7 @@ class ProductType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
-            ->add('flavors', EntityType::class, [
-                'class' => Flavor::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => false  // ou true pour un affichage en checkbox
-            ]) // Assuming Category entity has a 'name' field
+            // Assuming Category entity has a 'name' field
                 // Other options can be set here, such as 'multiple' for a many-to-many relationship
         
             // Add more fields or customize as needed
