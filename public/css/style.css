@@ -1,189 +1,45 @@
-/* Base styling */
+/* Importation des polices */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*{
+
+/* Réinitialisation et styles de base */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-#hero{
-
-    height:80vh;
-    width:100%;
-    overflow: hidden;
-    position: relative;
-}
-#myVideo {
-  
-    right: 0;
-    bottom: 0;
-    max-width: 100%;
-    position: relative;
-
-    /* min-height: 100%; */
-  }
-/* Add some content at the bottom of the video/page */
-.content-hero {
-    
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
-    position: absolute;
-  
-  }
-  
-  /* Style the button used to pause/play the video */
-  #myBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  #myBtn:hover {
-    background: #ddd;
-    color: black;
-  }
-  #promo{
-      /* The image used */
-  background-image: url("../whey/pexels-polina-tankilevitch-4443487.jpg");
-
-  /* Set a specific height */
-  min-height: 500px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-
-  .footer {
-	background-color: #151515;
-	padding: 80px 0;
-}
-
-.container {
-	max-width: 1170px;
-	margin: auto;
-}
-
-.row {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-ul {
-	list-style: none;
-}
-
-.footer-col {
-	width: 25%;
-	padding: 0 15px;
-}
-
-.footer-col h4 {
-	font-size: 18px;
-	color: #FFF;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
-}
-
-.footer-col h4::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -10px;
-	background-color: #E91E63;
-	width: 50px;
-	height: 2px;
-}
-
-.footer-col ul li:not(:last-child) {
-	margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-	color: #DDD;
-	display: block;
-	font-size: 1rem;
-	font-weight: 300;
-	text-transform: capitalize;
-	text-decoration: none;
-	transition: all 0.3s ease;
-}
-
-.footer-col ul li a:hover {
-	color: #FFF;
-	padding-left: 7px;
-}
-
-.footer-col .social-links a {
-	color: #FFF;
-	background-color: rgba(255, 255, 255, 0.2);
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	text-align: center;
-	margin: 0 10px 10px 0;
-	line-height: 40px;
-	transition: all 0.5s ease;
-}
-
-.footer-col .social-links a:hover {
-	color: #151515;
-	background-color: #FFF;
-}
-
-@media(max-width: 767px) {
-	.footer-col {
-		width: 50%;
-		margin-bottom: 30px;
-	}
-}
-
-@media(max-width: 574px) {
-	.footer-col {
-		width: 100%;
-	}
-}
 body {
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-	font-family: 'Poppins', sans-serif;
 }
 
-/* Header styling */
-header {
-    background: #333;
-    color: #fff;
-    padding: 20px 0;
+/* Section héroïque avec vidéo */
+#hero {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#myVideo {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+}
+
+.content-hero {
+    position: absolute;
+    
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    padding: 20px;
     text-align: center;
 }
 
-.header-content h1 {
-    margin: 0;
-}
-
-/* Navigation styling */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 15px;
-}
-
+/* Bouton personnalisé */
 .btn-primary {
     text-decoration: none;
     color: #fff;
@@ -197,61 +53,80 @@ nav {
     background: #0056b3;
 }
 
-/* Content and Product Section */
-.content {
+/* Section des produits vedettes avec affichage en grille */
+.product-section {
     padding: 20px;
-    text-align: center;
+    display: flex; /* Utilise flexbox pour aligner les enfants */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    justify-content: space-evenly; /* Centre les cartes horizontalement */
+    gap: 20px; /* Espacement entre les cartes */
 }
 
-.product-section h2 {
-    color: #333;
-}
-
+/* Style des cartes de produit */
 .card {
     background: #fff;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 300px;
+    width: calc(50% - 20px); /* Réglage pour deux cartes par ligne, ajustez selon le besoin */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
 }
 
 .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    width: 100%; /* Assure que l'image prend toute la largeur de la carte */
+    height: auto; /* Maintient le ratio de l'image */
 }
+
 
 .card-content {
     padding: 15px;
-    text-align: left;
 }
 
 .card-title {
-    margin-top: 0;
     color: #007bff;
+    margin-top: 0;
 }
 
 .card-text {
-    font-size: 0.9em;
     color: #555;
+    font-size: 0.9em;
 }
 
-/* Footer styling */
-footer {
-    background: #333;
-    color: white;
+/* Pied de page */
+.footer {
+    background-color: #151515;
+    color: #fff;
     text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 20px 0;
 }
 
-/* Responsive adjustments */
+/* Liens sociaux */
+.social-links a {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+    line-height: 40px;
+    transition: all 0.5s ease;
+}
+
+.social-links a:hover {
+    color: #151515;
+    background-color: #FFF;
+}
+
+/* Ajustements responsifs pour les petites tailles d'écran */
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px); /* Deux colonnes pour les écrans moyens */
+    }
+}
+
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
+    .card {
+        width: 100%; /* Une colonne pour les petits écrans */
     }
 }
