@@ -1,132 +1,160 @@
-/* Importation des polices */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Réinitialisation et styles de base */
-* {
+/* style.css */
+/* Reset some basic elements */
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Open Sans', sans-serif; /* Typographie similaire à celle utilisée par MyProtein */
+    background-color: #EFEFEF; /* Fond clair utilisé sur le site */
+    color: #5A5A5A; /* Gris foncé pour le texte, comme sur MyProtein */
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
-}
-
-/* Section héroïque avec vidéo */
-#hero {
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-}
-
-#myVideo {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    position: absolute;
-}
-
-.content-hero {
-    position: absolute;
-    
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
+    line-height: 1.6;
     padding: 20px;
+}
+
+header {
+    background-color: #1D3C45; /* Bleu très foncé de l'en-tête de MyProtein */
+    background: #333;
+    color: white;
+    padding: 20px;
+    padding: 10px 0;
     text-align: center;
 }
 
-/* Bouton personnalisé */
-.btn-primary {
-    text-decoration: none;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav a {
+    color: white;
     color: #fff;
-    background: #007bff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    text-decoration: none;
+    padding: 0 15px;
 }
 
-.btn-primary:hover {
-    background: #0056b3;
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
 }
 
-/* Section des produits vedettes avec affichage en grille */
-.product-section {
+.content {
+    background: white;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    display: flex; /* Utilise flexbox pour aligner les enfants */
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
-    justify-content: space-evenly; /* Centre les cartes horizontalement */
-    gap: 20px; /* Espacement entre les cartes */
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: white;
 }
 
-/* Style des cartes de produit */
+h1, h2, h3 {
+    color: #1D3C45; /* Bleu foncé pour les titres */
+    margin-bottom: 10px;
+.product-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap as needed */
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 .card {
     background: #fff;
-    width: calc(50% - 20px); /* Réglage pour deux cartes par ligne, ajustez selon le besoin */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     overflow: hidden;
+    width: 300px; /* Adjust the card width as needed */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
 .card img {
-    width: 100%; /* Assure que l'image prend toute la largeur de la carte */
-    height: auto; /* Maintient le ratio de l'image */
+    width: 100%;
+    height: 200px; /* Adjust the image height as needed */
+    object-fit: cover; /* Makes the images nicely fit the card */
 }
 
-
+th {
+    background-color: #1D3C45; /* Bleu foncé pour les en-têtes de table */
+    color: white;
 .card-content {
     padding: 15px;
 }
 
+button, .btn-primary {
+    background-color: #FFD200; /* Jaune vif, une couleur marquante de MyProtein */
+    color: #1D3C45; /* Bleu très foncé pour le texte du bouton */
+    border: none;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
 .card-title {
-    color: #007bff;
-    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
 }
 
+button:hover, .btn-primary:hover {
+    background-color: #E6C300; /* Une nuance plus foncée du jaune au survol */
 .card-text {
-    color: #555;
-    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
-/* Pied de page */
-.footer {
-    background-color: #151515;
-    color: #fff;
+a.btn-primary {
+.btn-primary {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #6687ad;
+}
+
+footer {
     text-align: center;
     padding: 20px 0;
-}
-
-/* Liens sociaux */
-.social-links a {
-    color: #FFF;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    text-align: center;
-    margin-right: 10px;
-    line-height: 40px;
-    transition: all 0.5s ease;
-}
-
-.social-links a:hover {
-    color: #151515;
-    background-color: #FFF;
-}
-
-/* Ajustements responsifs pour les petites tailles d'écran */
-@media (max-width: 1024px) {
-    .card {
-        width: calc(50% - 20px); /* Deux colonnes pour les écrans moyens */
-    }
+    background-color: #1D3C45; /* Bleu très foncé pour le pied de page */
+    background: #333;
+    color: white;
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
+    body, .content {
+        padding: 10px;
+    .product-section {
+        flex-direction: column;
+    }
+
+    .header-content {
+        flex-direction: column;
+    }
+
     .card {
-        width: 100%; /* Une colonne pour les petits écrans */
+        width: 90%; /* Adjust the card width for small screens */
+    }
     }
 }
+}
+}
+}}}}}
