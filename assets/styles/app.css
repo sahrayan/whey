@@ -1,0 +1,238 @@
+/* Style de base pour reset et typographie */
+*,
+*:after,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+header {
+    background-color: rgba(255, 255, 255, 0.98); /* Fond légèrement transparent */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce pour la profondeur */
+    position: fixed; /* Fixe le header en haut de la page */
+    width: 100%; /* Pleine largeur */
+    z-index: 1000; /* S'assure qu'il reste au-dessus des autres éléments */
+    top: 0; /* S'assure que le header est toujours en haut */
+    left: 0; /* Aligné à gauche */
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end; /* Alignement à droite */
+    align-items: center;
+    height: 60px; /* Hauteur fixe pour le header */
+}
+
+nav {
+    display: flex;
+    gap: 20px; /* Espacement entre les liens */
+}
+
+.nav-link {
+    background-color: transparent; /* Pas de fond pour un look épuré */
+    color: #007bff; /* Couleur bleue pour les liens */
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #0056b3;
+    background-color: rgba(0, 123, 255, 0.1); /* Légère couleur de fond au survol */
+}
+
+
+
+/* Style pour la section vidéo */
+#hero {
+  position: relative;
+  height: 400px; /* Ajustez selon vos besoins */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assure que la vidéo couvre toute la section */
+  z-index: -1; /* Envoie la vidéo à l'arrière-plan */
+}
+
+.content-hero {
+  position: relative;
+  z-index: 1; /* Assure que le texte apparaît au-dessus de la vidéo */
+  color: white; /* Assure que le texte est visible contre la vidéo */
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+
+.content-hero p {
+  font-size: 1.5rem;
+}
+
+/* Style pour la section des produits */
+.product-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+
+.production {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+/* Style général des cartes de produits */
+.card {
+    width: calc(33.333% - 20px); /* Affiche trois cartes par ligne avec un peu d'espace */
+    margin: 10px; /* Espacement autour des cartes */
+    background-color: #fff; /* Fond blanc pour les cartes */
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 10px; /* Coins arrondis */
+    overflow: hidden; /* Garantit que tout le contenu reste à l'intérieur des coins arrondis */
+    display: flex;
+    flex-direction: column; /* Organise le contenu de la carte verticalement */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre subtile pour la profondeur */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animation douce pour survol */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Ombre plus prononcée au survol */
+  }
+  
+  .card img {
+    width: 100%; /* Assure que l'image couvre la largeur de la carte */
+    height: auto; /* Garde le rapport hauteur/largeur de l'image */
+    object-fit: cover; /* Assure que l'image couvre bien l'espace assigné */
+  }
+  
+  .card-content {
+    padding: 20px; /* Espacement à l'intérieur de la carte */
+    flex: 1; /* Permet au contenu de remplir l'espace disponible */
+    display: flex;
+    flex-direction: column; /* Organise le contenu de la carte verticalement */
+  }
+  
+  .card-title {
+    font-size: 1.5rem; /* Taille de la police pour le titre */
+    margin-bottom: 10px; /* Espacement sous le titre */
+  }
+  
+  .card-text {
+    flex: 1; /* Permet au texte de remplir l'espace disponible */
+    margin-bottom: 20px; /* Espacement sous le texte */
+  }
+
+
+/* Style pour la section d'image d'arrière-plan */
+.img-section {
+  width: 100%;
+  height: 700px;
+  background-attachment: fixed;
+  filter: blur(1px);
+}
+
+.footer {
+	background-color: #151515;
+	padding: 80px 0;
+}
+
+
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ul {
+	list-style: none;
+}
+
+.footer-col {
+	width: 25%;
+	padding: 0 15px;
+}
+
+.footer-col h4 {
+	font-size: 18px;
+	color: #FFF;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+
+.footer-col h4::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	background-color: #E91E63;
+	width: 50px;
+	height: 2px;
+}
+
+.footer-col ul li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+	color: #DDD;
+	display: block;
+	font-size: 1rem;
+	font-weight: 300;
+	text-transform: capitalize;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+	color: #FFF;
+	padding-left: 7px;
+}
+
+.footer-col .social-links a {
+	color: #FFF;
+	background-color: rgba(255, 255, 255, 0.2);
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	text-align: center;
+	margin: 0 10px 10px 0;
+	line-height: 40px;
+	transition: all 0.5s ease;
+}
+
+
+
+@media(max-width: 767px) {
+	.footer-col {
+		width: 50%;
+		margin-bottom: 30px;
+	}
+}
+
+@media(max-width: 574px) {
+	.footer-col {
+		width: 100%;
+	}
+}
