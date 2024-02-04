@@ -8,6 +8,7 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- Link to your CSS file -->
         {% block stylesheets %} 
+        
         {% endblock %}  
 
         {% block javascripts %}
@@ -15,18 +16,54 @@
         {% endblock %}
     </head>
     <body>
-          <header>
-        <div class="header-content">
-           
-            <nav>
-                <a href="/login" class="btn-primary">Se Connecter</a>
-                <a href="/register" class="btn-primary">S'inscrire</a>
-                <a href="/product" class="btn-primary">Produits</a>
-                <a href="/cart" class="btn-primary">Panier</a>
-            </nav>
-        </div>
-    </header>
+       <header>
+    <div class="header-content">
+        <nav>
+            <a href="/" class="nav-link">Accueil</a>
+            <a href="/product" class="nav-link">Produits</a>
+            <a href="/cart" class="nav-link">Panier</a>
+            <a href="/login" class="nav-link">Se Connecter</a>
+            <a href="/register" class="nav-link">S'inscrire</a>
+        </nav>
+    </div>
+</header>
+
         {% block body %}
         {% endblock %}
     </body>
+        <div class="container">
+	<footer class="footer">
+		<div class="container row">
+			<div class="footer-col">
+				<h4>company</h4>
+				<ul>
+					<li><a href="#">about us</a></li>
+					<li><a href="#">our services</a></li>
+					<li><a href="#">privacy policy</a></li>
+					<li><a href="#">visit website</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>get help</h4>
+				<ul>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">shipping</a></li>
+					<li><a href="#">returns</a></li>
+					<li><a href="#">order status</a></li>
+					<li><a href="#">payment options</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>online shop</h4>
+				<ul>
+					<li><a href="#">download</a></li>
+					<li><a href="#">changelog</a></li>
+					<li><a href="#">github</a></li>
+					<li><a href="#">all version</a></li>
+				</ul>
+			</div>
+			
+		</div>
+	</footer>
+      </div>
 </html>
