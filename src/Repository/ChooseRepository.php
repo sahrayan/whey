@@ -21,20 +21,20 @@ class ChooseRepository extends ServiceEntityRepository
         parent::__construct($registry, Choose::class);
     }
 
-//    /**
-//     * @return Choose[] Returns an array of Choose objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+// //    /**
+// //     * @return Choose[] Returns an array of Choose objects
+// //     */
+// //    public function findByExampleField($value): array
+// //    {
+// //        return $this->createQueryBuilder('c')
+// //            ->andWhere('c.exampleField = :val')
+//              ->setParameter('idproduct', $isProduct)
+// //            ->orderBy('c.id', 'ASC')
+// //            ->setMaxResults(10)
+// //            ->getQuery()
+// //            ->getResult()
+// //        ;
+// //    }
 
 //    public function findOneBySomeField($value): ?Choose
 //    {
