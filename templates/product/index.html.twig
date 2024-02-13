@@ -4,7 +4,6 @@
 
 {% block body %}
 
-
     <a href="{{ path('app_home') }}" class="btn-secondary">Home</a>
     <a href="{{ path('cart_index') }}" class="btn-primary">View Cart</a>
 
@@ -30,11 +29,13 @@
                     <td>
                         <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success">Add to Cart</a>
                         <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-info">View</a>
-                        <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-primary">Edit</a>
-                        <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');" class="d-inline">
-                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-primary">Edit</a>
+                            <form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Are you sure?');" class="d-inline">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
@@ -55,5 +56,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('product_new') }}" class="btn btn-primary">Create new</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('product_new') }}" class="btn btn-primary">Create new</a>
+    {% endif %}
 {% endblock %}
