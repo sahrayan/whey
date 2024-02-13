@@ -225,6 +225,10 @@ ul {
 
 
 @media(max-width: 767px) {
+  #container {
+    flex-direction: column;
+    width: 100vw;
+  }
 	.footer-col {
 		width: 50%;
 		margin-bottom: 30px;
@@ -236,3 +240,357 @@ ul {
 		width: 100%;
 	}
 }
+
+
+
+/* Styles de base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  color: #fff;
+ 
+  
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* Ajoutez d'autres styles spécifiques à votre application ici */
+
+/* Styles pour la navigation */
+nav {
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+}
+
+/* Styles spécifiques pour les sections de saveur */
+.flavor-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.flavor-list li {
+  padding: 5px 0;
+}
+/* Styles de base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* Ajoutez d'autres styles spécifiques à votre application ici */
+
+/* Styles pour la navigation */
+nav {
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+}
+
+/* Styles spécifiques pour les sections de saveur */
+.flavor-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.flavor-list li {
+  padding: 5px 0;
+}
+
+
+
+
+
+
+/* Conteneur général pour le formulaire de connexion */
+.login-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 5% auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Styles généraux pour le titre et le formulaire */
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.form-control {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Ajoutez des styles supplémentaires pour personnaliser davantage votre formulaire de connexion */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Conteneur pour le formulaire d'inscription */
+.register-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 5% auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Styles pour les alertes */
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Styles pour le titre */
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Styles généraux pour les champs du formulaire */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styles pour les champs de saisie et les étiquettes */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur totale */
+  margin-top: 5px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Styles pour le bouton d'envoi */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Ajoutez ici tout autre style spécifique dont vous pourriez avoir besoin */
