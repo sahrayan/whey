@@ -45,32 +45,32 @@ class CartController extends AbstractController
 
     // Ajouter un produit au panier
     #[Route('/cart/add/{id}', name: 'cart_add')]
-public function add($id, SessionInterface $session, ProductRepository $productRepository)
-{
-    // Récupérer le panier actuel de la session, ou initialiser à vide si aucun panier n'existe
+    public function add($id, SessionInterface $session, ProductRepository $productRepository)
+    {
+    // Récupére le panier actuel de la session, ou initialiser à vide si aucun panier n'existe
     $cart = $session->get('cart', []);
 
-    // Vérifier si le produit existe pour éviter des problèmes
+    // Vérifie si le produit existe pour éviter des problèmes
     if ($productRepository->find($id)) {
-        // Ajouter ou incrémenter le produit dans le panier
+        // Ajoute ou incrémente le produit dans le panier
         if (!empty($cart[$id])) {
             $cart[$id]++;
         } else {
             $cart[$id] = 1;
         }
     } else {
-        // Gérer l'erreur si le produit n'existe pas (redirection, message flash, etc.)
+        // Gére l'erreur si le produit n'existe pas (redirection, message flash, etc.)
         // ...
         return $this->redirectToRoute('product_index');
     }
 
-    // Sauvegarder le panier mis à jour dans la session
+    // Sauvegarde le panier mis à jour dans la session
     $session->set('cart', $cart);
 
-    // Rediriger vers une page (par exemple, la page du panier)
+    // Redirige vers une page (par exemple, la page du panier)
     return $this->redirectToRoute('cart_index');
-}
-    // Supprimer un produit du panier
+    }
+    // Supprime un produit du panier
     #[Route('/cart/remove/{id}', name: 'cart_remove')]
     public function remove($id, SessionInterface $session)
     {
